@@ -5,59 +5,130 @@
   padding: 0;
 }
 
+/* L'Oreal-inspired palette */
+:root {
+  --gold: #d4af37;
+  --gold-soft: #f5edd3;
+  --charcoal: #171717;
+  --ivory: #f9f7f2;
+  --ink: #222222;
+  --muted: #5f5f5f;
+  --line: #ded7c2;
+}
+
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 0% 0%, #fffef9 0%, rgba(255, 255, 255, 0) 45%),
+    radial-gradient(
+      circle at 100% 100%,
+      #f4ebcc 0%,
+      rgba(255, 255, 255, 0) 30%
+    ),
+    linear-gradient(180deg, #fffdf7 0%, #f6f1e4 100%);
   display: flex;
   justify-content: center;
+  min-height: 100vh;
 }
 
 .page-wrapper {
   width: 90%;
-  max-width: 900px;
+  max-width: 980px;
 }
 
 /* header */
 .site-header {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 44px;
+}
+
+.brand-logo {
+  width: 190px;
+  max-width: 65%;
+}
+
+.eyebrow {
+  margin-top: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
 }
 
 .site-title {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.site-subtitle {
+  margin: 12px auto 0;
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
 }
 
 /* chat window */
 .chatbox {
-  margin: 40px 0;
+  margin: 34px 0;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.latest-question {
+  min-height: 30px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--gold);
+  color: var(--charcoal);
+  font-size: 14px;
+  background: var(--gold-soft);
+  border-radius: 8px;
 }
 
 .chat-window {
-  height: 360px;
-  border: 1px solid #000;
+  height: 430px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
   padding: 20px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   overflow-y: auto;
-  background: #fafafa;
-  white-space: pre-line;
+  background: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* messages */
 .msg {
-  margin-bottom: 14px;
+  max-width: 80%;
   line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: 14px;
+  animation: fade-up 260ms ease;
 }
 
 .msg.user {
-  color: #000;
+  color: #ffffff;
+  background: linear-gradient(135deg, #313131 0%, #191919 100%);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
 }
 
 .msg.ai {
-  color: #666666;
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid var(--line);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
 }
 
 /* input row */
@@ -69,29 +140,34 @@ body {
 
 .chat-form input {
   flex: 1;
-  padding: 12px;
-  border: 1px solid #ccc;
-  font-size: 18px;
+  padding: 13px 14px;
+  border: 1px solid #ccc6b2;
+  border-radius: 12px;
+  font-size: 16px;
+  background: #fffcf4;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: var(--charcoal);
   color: #fff;
   border: none;
   padding: 12px;
-  width: 48px;
-  height: 48px;
+  border-radius: 12px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
+  transition:
+    transform 0.2s,
+    background 0.3s;
 }
 
 .chat-form button .material-icons {
@@ -99,11 +175,12 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: #2f2f2f;
+  transform: translateY(-1px);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
@@ -122,10 +199,10 @@ body {
 
 /* footer */
 .site-footer {
-  margin: 60px 0 40px;
+  margin: 44px 0 34px;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: var(--muted);
 }
 
 .site-footer nav {
@@ -134,10 +211,37 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: var(--charcoal);
   text-decoration: none;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: #6f6f6f;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .site-title {
+    font-size: 26px;
+  }
+
+  .chat-window {
+    height: 400px;
+    padding: 14px;
+  }
+
+  .msg {
+    max-width: 92%;
+    font-size: 15px;
+  }
 }

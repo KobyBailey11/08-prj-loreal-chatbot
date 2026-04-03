@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+    <title>L'Oreal Beauty Advisor</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -19,12 +19,24 @@
     <div class="page-wrapper">
       <!------- Header / Branding ------->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <img src="img/loreal-logo.png" alt="L'Oreal logo" class="brand-logo" />
+        <p class="eyebrow">Beauty Tech Experience</p>
+        <h1 class="site-title">L'Oreal Beauty Advisor</h1>
+        <p class="site-subtitle">
+          Ask about products, routines, and recommendations tailored to your
+          goals.
+        </p>
       </header>
 
       <!------- Chat Area ------->
       <main>
         <section class="chatbox">
+          <div
+            id="latestQuestion"
+            class="latest-question"
+            aria-live="polite"
+          ></div>
+
           <div id="chatWindow" class="chat-window">
             <!-- messages will be appended here via JS -->
           </div>
@@ -49,12 +61,26 @@
 
       <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>&copy; 2026 L'Oreal. All rights reserved.</p>
         <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
+          <a
+            href="https://www.loreal.com/en/privacy-policy/"
+            target="_blank"
+            rel="noreferrer"
+            >Privacy Policy</a
+          >
+          <a
+            href="https://www.loreal.com/en/terms-of-use/"
+            target="_blank"
+            rel="noreferrer"
+            >Terms of Use</a
+          >
+          <a
+            href="https://www.loreal.com/en/contact-us/"
+            target="_blank"
+            rel="noreferrer"
+            >Contact</a
+          >
         </nav>
       </footer>
     </div>
